@@ -93,3 +93,39 @@ readonly class UpdateOrderDTO
 - stocks — остатки товаров по складам
 
 - stock_movements — история движений
+
+# 🚀 Инструкция по развёртыванию проекта
+
+## 📦 Клонирование репозитория
+
+```bash
+git clone git@github.com:solbonka/maxmoll.git
+cd maxmoll
+```
+
+## 🐳 Сборка и запуск Docker-контейнеров
+```bash
+docker compose build
+docker compose up -d
+```
+
+## 🔧 Установка зависимостей
+```bash
+docker compose exec php-fpm bash
+composer install
+```
+
+## 📁 Настройка .env
+### Скопируйте .env.example в .env:
+```bash
+cp .env.example .env
+```
+### Сгенерируйте ключ приложения:
+```bash
+php artisan key:generate
+```
+
+## 🧰 Миграции и сидеры
+```bash
+php artisan migrate --seed
+```
